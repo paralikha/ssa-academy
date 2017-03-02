@@ -1,0 +1,52 @@
+.toolbox {
+	@extend .card;
+	background-color: transparent;
+	&-container {
+		border: 2px dashed $gray-light;
+		border-radius: 3px;
+		min-height: 300px;
+	}
+	&-header {
+		@extend .card-header;
+		padding: $padding-sm;
+	}
+	&-block {
+		@extend .card-block;
+		padding: $padding-sm;
+	}
+	&-title {
+		position: absolute;
+		@include center();
+	}
+	&-subtitle {
+		@extend .text-muted;
+	}
+	&-item {
+		@extend .list-group-item;
+		cursor: move;
+		&, &:last-child {
+			margin-bottom: $margin;
+		}
+		z-index: 9999;
+		overflow: hidden;
+		// @include haf(inherit, transparentize($gray-light, 0.8));
+		.toolbox-subtitle {
+			padding-left: $padding-lg;
+			margin-bottom: 0;
+		}
+	}
+	&-item-editable {
+		display: none;
+	}
+	.separator {
+		margin-top: $margin-sm;
+	}
+
+	.toolbox-hidden {
+		display: none;
+	}
+}
+
+.toolbox .toolbox-block .toolbox-item {
+	margin-bottom: -1px;
+}

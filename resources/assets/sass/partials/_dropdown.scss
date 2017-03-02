@@ -1,0 +1,55 @@
+.dropdown {
+    &-right {
+        right: 0;
+        left: inherit;
+    }
+}
+
+.dropdown-menu {
+    padding-top: 0;
+    min-width: 172px;
+    margin: 3px;
+    z-index: 99999 !important;
+    .dropdown-header {
+        border-bottom: 1px solid $gray-lighter;
+        padding-top: $padding-sm;
+        padding-bottom: $padding-sm;
+    }
+}
+
+.dropdown-fluid {
+    min-width: $sidebar-width-wide*2;
+    .dropdown-item {
+        @extend .clearfix;
+        white-space: normal;
+    }
+}
+
+.dropdown-item {
+    > a {
+        cursor: pointer;
+        display: block;
+        color: $dark-color;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &.active {
+        > a {
+            color: $dark-color;
+        }
+    }
+}
+
+// Utilitybar Dropdown
+.utilitybar .dropdown {
+    .dropdown-user-menu {
+        top: 0;
+        > .dropdown-header {
+            &:first-child {
+                padding: $padding;
+                padding-right: $padding-lg*2;
+            }
+        }
+    }
+}

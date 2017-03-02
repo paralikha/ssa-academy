@@ -1,0 +1,76 @@
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	color: $dark-color;
+	font-family: $heading-font-family;
+	@extend .tt-u;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
+p, .p {
+	letter-spacing: $letter-spacing;
+}
+
+p, .p {
+	font-size: $font-size-base;
+}
+
+h1, .h1 {
+	font-size: $font-size-h1;
+	// font-weight: $font-weight-black;
+}
+
+h2, .h2 {
+	font-size: $font-size-h2;
+	// font-weight: $font-weight-heavy;
+}
+
+h3, .h3 {
+	font-size: $font-size-h3;
+	// font-weight: $font-weight-bolder;
+}
+
+h4, .h4 {
+	font-size: $font-size-h4;
+	font-weight: $font-weight-black;
+}
+
+h5, .h5 {
+	font-size: $font-size-h5;
+	font-weight: $font-weight-heading;
+}
+
+h6, .h6 {
+	font-size: $font-size-h6;
+	font-weight: $font-weight-bold;
+}
+
+p {
+	font-family: $paragraph-font-family;
+	color: $paragraph-color;
+	font-weight: $font-weight-light;
+}
+
+.text-white p {
+	color: $light-color;
+}
+
+.text {
+	&-heading {
+		font-weight: $font-weight-heading;
+	}
+	&-subheading {
+		font-weight: $font-weight-subheading;
+	}
+	&-heavy {
+		font-weight: $font-weight-heavy;
+		text-shadow: 0 5px 3px rgba(0,0,0,0.09);
+	}
+	&-bold {
+		font-weight: $font-weight-bold;
+	}
+	&-italic {
+		font-style: italic;
+	}
+	&-underline {
+		text-decoration: underline;
+	}
+}

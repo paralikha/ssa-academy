@@ -1,0 +1,76 @@
+.utility {
+    @extend .nav;
+
+    &bar {
+        @extend .navbar;
+        background-color: $light-color;
+        // height: $utilitybar-height;
+        border-bottom: 1px solid transparentize($gray, 0.90);
+        padding: 0;
+
+        .btn, .form-control {
+            height: $utilitybar-height;
+            border: none;
+        }
+
+        &-light {
+            @extend .navbar-light;
+        }
+
+        &-dark {
+            @extend .navbar-dark;
+        }
+
+        &-fixed-top {
+            @extend .navbar-fixed-top;
+        }
+
+        &-toggler {
+            @extend .navbar-toggler;
+        }
+
+        &-brand {
+            @extend .navbar-brand;
+        }
+    }
+
+    &-search-form {
+        position: absolute;
+        z-index: 99;
+        // background-color: $bg-color-default;
+    }
+
+    &-search-control {
+        background-color: transparentize($gray-light, 0.95);
+    }
+    &-menu {
+        @extend .navbar-nav;
+        .utility-item {
+            @extend .nav-item;
+            + .utility-item {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &-link {
+        @extend .btn;
+        padding: $padding;
+        border-radius: 0;
+        @include haf($dark-color, transparentize($gray-light, 0.95));
+        &:after {
+            content: "";
+            border: none;
+        }
+        i {
+            display: block;
+        }
+        .icon {
+            display: block;
+            + .tag {
+                position: absolute;
+                top: $margin*0.4;
+            }
+        }
+    }
+}

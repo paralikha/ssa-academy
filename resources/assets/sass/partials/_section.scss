@@ -1,0 +1,22 @@
+.section {
+	background-color: #ffffff;
+	position: relative;
+
+	&-block {
+		padding-top: $padding-lg*4;
+		padding-bottom: $padding-lg*4;
+	}
+
+	&-title {
+		margin-bottom: $margin-lg;
+
+		span {
+			color: $dark-color;
+		}
+
+		&-lg {
+			font-size: $font-size-base*4;
+			// margin-bottom: $margin-xl !important;
+		}
+	}
+}

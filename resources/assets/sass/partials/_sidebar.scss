@@ -1,0 +1,291 @@
+.sidebar {
+	@extend .card;
+	width: $sidebar-width-wide;
+	@include trans();
+
+    &.toggled {
+        width: $sidebar-width-narrow;
+
+        .sidebar-brand {
+            z-index: -1;
+            > .sidebar-title {
+                display: none;
+            }
+        }
+
+        .sidebar-link {
+            > span {
+                display: none;
+            }
+        }
+    }
+
+    &-transparent {
+        background: transparent !important;
+        border: none;
+    }
+
+    &-header {
+    	min-height: $sidebar-width-narrow;
+    	border-bottom: 1px solid transparentize($gray, 0.5);
+    	position: relative;
+    }
+
+    &-toggler {
+    	@extend .navbar-toggler;
+    	height: $sidebar-width-narrow;
+    	width: $sidebar-width-narrow;
+    	z-index: 999;
+    	position: relative;
+    	&:hover, &:focus {
+	        background-color: transparentize($gray, 0.5);
+	    }
+    	.icon-bar {
+    		display: block;
+    		width: 100%;
+    		height: 2px;
+    		margin: $margin*0.4 auto;
+    		background: transparentize($primary-color, 0.5);
+    	}
+    }
+
+	&-left {
+		@include sidebar('left');
+	}
+	&-right {
+		@include sidebar('right');
+	}
+
+	&-block {
+		@extend .card-block;
+		padding: 0;
+		.sidebar-item > .sidebar-link {
+			padding: $padding;
+		}
+	}
+
+	&-brand {
+		padding: $padding;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		z-index: 998;
+		&-img {
+			height: 100%;
+			width: auto;
+			vertical-align: top;
+		}
+        &:hover, &:focus, &:active {
+            text-decoration: none;
+        }
+    }
+
+    &-stacked {
+	    @extend .nav-stacked;
+	    .sidebar-item, .sidebar-item + .sidebar-item {
+	        margin: 0;
+	    }
+	    .sidebar-link {
+	        display: block;
+	    }
+	}
+
+	&-item {
+	    @extend .nav-item;
+	    &.active {
+	        .sidebar-link {
+	            border-left: 3px solid $primary-color;
+	            color: $primary-color;
+	        }
+	    }
+	    + .sidebar-item {
+	        border-top: 1px solid rgba(0,0,0,0.1);
+	    }
+	}
+
+	&-link {
+	    @extend .nav-link;
+	    &.dropdown-toggle {
+	        position: relative;
+	        &:after {
+	            float: right;
+	            position: absolute;
+	            top: 50%;
+	            right: $padding;
+	            // transform: translateY(-50%);
+	        }
+	    }
+
+	    @include haf(inherit, transparentize($gray, 0.5));
+	}
+
+    &-static {
+        &-left {
+            left: 0;
+            height: 100%;
+            display: block;
+            position: static;
+            border-right: 1px solid $gray-lighter;
+        }
+    }
+
+}
+
+.sidebar, .sidebar-light {
+	background-color: $light-color;
+	color: $gray-light;
+
+	.sidebar-header {
+		border-bottom: 1px solid $gray-lighter;
+	}
+
+	.navbar-toggler {
+		@include haf(inherit, $gray-lighter);
+	}
+	.sidebar-link {
+		color: $light-color-color;
+		@include haf($primary-color, $gray-lighter);
+	}
+}
+
+// Sidebar Dropdown
+.sidebar {
+	.dropdown, .dropdown-menu {
+		@include trans();
+        box-shadow: none;
+	}
+
+	.dropdown-menu {
+        background-color: $gray-lighter;
+        border: none;
+        float: none;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        top: 0;
+        transition: height 0.25s step-start;
+
+        .dropdown-item, .dropdown-link {
+        	color: $dark-color;
+        	@include haf($primary-color, transparentize($gray, 0.9));
+        }
+    }
+
+    .dropdown-toggle {
+        &:after, &:before {
+            content: "";
+            border: none;
+            border-top: none;
+            position: absolute;
+            width: 1px;
+            height: 7px;
+            background-color: $light-color-color;
+            top: 50%;
+            right: $padding;
+            transition: $transition-default;
+            transform: translateY(-50%);
+            @include haf(inherit, $primary-color);
+        }
+        &:before {
+            transform: rotate(45deg) translate(0);
+        }
+        &:after {
+            transform: rotate(-45deg) translate(-3px, -3px);
+        }
+    }
+
+    .open {
+        .dropdown-menu {
+            transition-timing-function: linear, step-end, step-end;
+        }
+        .dropdown-toggle {
+            &:before {
+                transform: rotate(-45deg) translate(0, 0);
+            }
+            &:after {
+                transform: rotate(45deg) translate(0, 0);
+            }
+        }
+
+        .sidebar-link {
+            background-color: $gray-lighter;
+        }
+    }
+
+}
+
+// Sidebar Dropdown Toggled
+.sidebar {
+	&.toggled {
+        .dropdown.open {
+            .dropdown-menu {
+                display: none;
+            }
+        }
+        .dropdown-toggle {
+            &:before {
+                display: none;
+            }
+            &:after {
+                content: "";
+                background-color: transparent;
+                border: 3px solid transparent;
+                border-top: 3px solid $gray-light;
+                bottom: 0;
+                height: 0;
+                margin: 0;
+                right: 0;
+                top: inherit;
+                width: 0;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $container-sm) {
+    .sidebar.toggled {
+        .dropdown {
+            &:hover, &:focus, {
+                // background-color: $sidebar-bg-color-default;
+                display: block;
+                width: 223px;
+                .sidebar-link > span {
+                    display: block;
+                    left: $sidebar-width-narrow;
+                    padding: $padding-sm;
+                    position: absolute;
+                    top: 0;
+                }
+                .dropdown-menu {
+                    display: block !important;
+                    // background-color: $gray-lighter;
+                    // box-shadow: $box-shadow-default;
+                    left: $sidebar-width-narrow;
+                    position: absolute;
+                    top: 100%;
+                }
+            }
+            &:not(.open) {
+                .dropdown-toggle {
+                    &:before {
+                        display: none;
+                    }
+                    &:after {
+                        content: "";
+                        background-color: transparent;
+                        border: 3px solid transparent;
+                        border-top: 3px solid $gray-light;
+                        bottom: 0;
+                        height: 0;
+                        margin: 0;
+                        right: 0;
+                        top: inherit;
+                        width: 0;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.input-group {
+    &-addon-dotted {
+        @extend .input-group-addon;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px dotted $gray-light;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    &-icon-addon {
+        @extend .input-group-addon;
+        background-color: transparent;
+        position: absolute;
+        margin: 0;
+        width: $padding-lg*2;
+        height: 100%;
+        z-index: 4;
+        border: none;
+        line-height: inherit;
+        &:first-child {
+            top: 0;
+            left: 0;
+        }
+        > .icon {
+            vertical-align: middle;
+            position: absolute;
+            color: $gray;
+            @include center();
+        }
+        + .form-control {
+            padding-left: $padding-lg*2;
+        }
+    }
+    &-lg {
+        .input-group-icon-addon {
+            width: $padding-lg*2;
+            + .form-control {
+                padding-left: $padding-lg*2;
+            }
+        }
+    }
+}

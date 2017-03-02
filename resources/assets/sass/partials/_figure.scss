@@ -1,0 +1,33 @@
+.figure-special-type-1 {
+	.figure-title {
+		font-size: $font-size-base*3;
+		color: $primary-color;
+		font-style: italic;
+		position: relative;
+		padding-bottom: $padding;
+		&:after {
+			position: absolute;
+			content: "";
+			background: #fff;
+			height: 1px;
+			width: 50vw;
+			left: -100%;
+			bottom: 0;
+		}
+	}
+}
+
+.offset-sm-6 {
+	.figure-title {
+		&:after {
+			position: absolute;
+			content: "";
+			background: #fff;
+			height: 1px;
+			width: 50vw;
+			right: -50%;
+			left: inherit;
+			bottom: 0;
+		}
+	}
+}

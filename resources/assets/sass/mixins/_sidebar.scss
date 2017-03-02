@@ -1,0 +1,12 @@
+@mixin sidebar($position: 'left') {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	@if ('left' == $position) {
+		left: 0;
+	}
+	@if ('right' == $position) {
+		right: 0;
+	}
+}

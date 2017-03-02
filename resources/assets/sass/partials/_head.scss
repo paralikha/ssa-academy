@@ -1,0 +1,30 @@
+.head {
+	&er {
+        display: block;
+        overflow: hidden;
+
+        &-bg {
+            color: $white;
+        }
+
+		&-block {
+			@extend .card-block;
+		}
+
+        &-cover {
+            @extend .card-block;
+            padding-left: $padding-lg;
+            padding-right: $padding-lg;
+            height: 100vh;
+            max-height: 800px;
+
+            .header-title {
+                margin-top: $margin-lg*3;
+            }
+        }
+
+		&-item {
+			@extend .card-block;
+		}
+	}
+}

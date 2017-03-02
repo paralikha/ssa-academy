@@ -1,0 +1,31 @@
+@-moz-document url-prefix() {
+	fieldset { display: table-cell; }
+}
+
+.table {
+	&-wrapper, &-fluid {
+		th, td {
+			&:first-child {
+				padding-left: $padding-lg;
+			}
+			&:last-child {
+				padding-right: $padding-lg;
+			}
+		}
+	}
+
+	&-borderless {
+		tbody, thead {
+			td, th {
+				border: none !important;
+			}
+		}
+	}
+}
+
+.card {
+	.table {
+		background-color: $light-color;
+		margin-bottom: 0;
+	}
+}

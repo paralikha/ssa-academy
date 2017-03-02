@@ -1,0 +1,40 @@
+.toolbar {
+	@extend .card;
+
+	&-transparent {
+		background-color: transparent;
+		border: none;
+	}
+
+	&-block {
+		@extend .card-block;
+	}
+
+	&-title {
+		@extend .card-title;
+	}
+
+	&[class*="static"] {
+		position: absolute;
+		height: 100%;
+	}
+	&-static {
+		&-left {
+			left: 0;
+			border: none;
+			border-right: 1px solid $gray-lighter;
+		}
+	}
+
+	&-panel {
+		margin-top: $margin*1.5;
+	}
+
+	&-header {
+		@extend .card-header;
+	}
+
+	&-footer {
+		@extend .card-footer;
+	}
+}

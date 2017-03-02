@@ -1,0 +1,14 @@
+.btn {
+    @extend .tt-u;
+    font-weight: $font-weight-bolder;
+
+    &-lg {
+        border-radius: $border-radius-lg;
+    }
+
+	&-circle {
+		border-radius: 50%;
+		padding-left: $padding;
+		padding-right: $padding;
+	}
+}

@@ -1,0 +1,24 @@
+@mixin curved-line($color: inherit, $direction: 'downward') {
+	width: 50px;
+	height: 38px;
+	border:solid 3px $color;
+	@if $direction == 'downward' {
+		border-color: transparent transparent $color $color;
+		border-radius: 0px 0px 0px 250px;
+	}
+	@if $direction == 'upward' {
+		border-color: $color transparent transparent $color;
+		border-radius: 250px 0px 0px 0px;
+	}
+}
+
+@mixin triangle($color: inherit, $size: 8px, $direction: 'left') {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+	border: $size solid transparent;
+	@if ('left' == $direction) { border-left-color: $color; }
+	@if ('right' == $direction) { border-right-color: $color; }
+	@if ('top' == $direction) { border-top-color: $color; }
+	@if ('bottom' == $direction) { border-bottom-color: $color; }
+}

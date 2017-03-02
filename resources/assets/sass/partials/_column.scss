@@ -1,0 +1,38 @@
+.col {
+	&-border {
+		&-left {
+			@extend .card-border-left;
+		}
+		&-right {
+			@extend .card-border-right;
+		}
+	}
+}
+
+.row-img {
+	margin-left: -$margin;
+	margin-right: -$margin;
+	> [class*="col-"] {
+		margin-left: -1px;
+		border: 1px solid transparentize($gray-light, 0.35);
+		min-height: 30px;
+		background-color: transparentize($gray-light, 0.45);
+		padding: $padding;
+		@include clearfix();
+		.toolbox-item:last-child {
+			margin-bottom: 0;
+		}
+		.center {
+			@include center();
+		}
+	}
+}
+
+.container {
+	@media only screen and (max-width: $container-sm) {
+		&-narrow {
+			padding-left: $padding-lg*2 !important;
+			padding-right: $padding-lg*2 !important;
+		}
+	}
+}
