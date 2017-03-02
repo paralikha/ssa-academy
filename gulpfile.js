@@ -10,7 +10,10 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
-    del = require('del');
+    del = require('del'),
+    sourcemaps = require('gulp-sourcemaps');
+
+var preprocess = require('gulp-preprocess');
 
 var directory = {
     css: {
@@ -33,19 +36,25 @@ var directory = {
         dist: 'assets/img/favicon',
         root: './',
     },
+    html: {
+        dist: './pages/',
+        root: './',
+    }
 }
 
 var src = {
     directories: {
         root: 'resources',
-        scss: 'resources/sass',
-        js: 'resources/scripts',
-        img: 'resources/images',
+        scss: 'resources/assets/sass',
+        js: 'resources/assets/scripts',
+        img: 'resources/assets/images',
+        html: 'resources/views',
     },
     files: {
         scss: '/app.scss',
         js: '/**/*.js',
         img: '/**/*',
+        html: '/**/*.+(html|nunjucks)',
     }
 }
 
@@ -66,12 +75,16 @@ var app = {
 |
 */
 gulp.task('sass', function () {
-    return sass( src.directories.scss + src.files.scss, { style: 'expanded' } )
+    return sass( src.directories.scss + src.files.scss, { style: 'expanded', loadPath: [
+                'bower_components',
+            ] } )
+            .pipe( sourcemaps.init() )
             .pipe( autoprefixer('last 2 version') )
             .pipe( rename( app.name.css ) )
             .pipe( gulp.dest( directory.css.dist ) )
             .pipe( rename({ suffix: '.min' }) )
             .pipe( cssnano() )
+            .pipe( sourcemaps.write('.') )
             .pipe( gulp.dest( directory.css.dist ) )
             .pipe( notify({ message: 'Completed compiling SASS Files' }) );
 });
@@ -87,10 +100,12 @@ gulp.task('sass', function () {
 */
 gulp.task('scripts', function () {
     return gulp.src( src.directories.js + src.files.js )
+            .pipe( sourcemaps.init() )
             .pipe( concat( app.name.js ) )
             .pipe( gulp.dest( directory.js.dist ) )
             .pipe( rename({ suffix: '.min' }) )
             .pipe( uglify() )
+            .pipe( sourcemaps.write('.') )
             .pipe( gulp.dest( directory.js.dist ) )
             .pipe( notify({ message: 'Completed compiling JS Files' }) );
 });
@@ -113,6 +128,27 @@ gulp.task('images', function () {
         .pipe( notify({ message: 'Images optimization complete' }));
 });
 
+
+/*
+| # HTML
+|
+| @run  gulp html
+|
+| @destination
+|       - ./html/
+*/
+gulp.task('html', function () {
+    gulp.src( src.directories.html + src.files.html )
+        .pipe( preprocess({
+            context: {
+                NODE_ENV: 'production',
+                DEBUG: true,
+            }
+        }) )
+        .pipe( gulp.dest( directory.html.dist ) );
+});
+
+
 /*
 | # Clean
 |
@@ -128,7 +164,7 @@ gulp.task('clean', function () {
 | @run  gulp default
 */
 gulp.task('default', ['clean'], function () {
-    gulp.start('sass', 'scripts', 'images');
+    gulp.start('sass', 'scripts', 'images', 'html');
 });
 
 /*
@@ -143,4 +179,6 @@ gulp.task('watch', function () {
     gulp.watch( src.directories.js + '/**/*.js', ['scripts']);
     // Watch image files
     gulp.watch( src.directories.img + '/**/*', ['images']);
+    // Watch nunjucks|html files
+    gulp.watch( src.directories.html + '/**/*', ['html']);
 });

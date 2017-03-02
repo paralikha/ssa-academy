@@ -1,5 +1,5 @@
 {
-  "name": "front-end-boilerplate",
+  "name": "ssa-academy",
   "homepage": "",
   "authors": [
     "John Lioneil Dionisio <john.dionisio1@gmail.com>"
@@ -15,5 +15,8 @@
     "vendor",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "bootstrap": "4.0.0-alpha.6"
+  }
 }
