@@ -1,0 +1,90 @@
+@mixin center($alignment: 'both') {
+	position: absolute;
+	@if ($alignment == 'both') {
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+	@if ($alignment == 'horizontal') {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	@if ($alignment == 'vertical') {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+@mixin colors($color: inherit, $bg: inherit, $gradient: false) {
+	color: $color;
+	@if ($gradient) {
+		background-color: $bg;
+		background: -moz-linear-gradient(top,  lighten($bg, 0.7) 0%, $bg 100%); /* FF3.6-15 */
+	    background: -webkit-linear-gradient(top,  lighten($bg, 0.7) 0%,$bg 100%); /* Chrome10-25,Safari5.1-6 */
+	    background: linear-gradient(to bottom,  lighten($bg, 0.7) 0%,$bg 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+	@if (false == $gradient) {
+		background: none;
+		background-color: $bg;
+	}
+}
+
+@mixin haf($color: inherit, $bg: inherit) {
+	&:hover, &:active, &:focus {
+		color: $color;
+		background: $bg;
+	}
+}
+
+@mixin white {
+	color: white !important;
+	@include haf(white);
+}
+
+@mixin scale-heading($by: 1) {
+	h1, .h1 {
+		font-size: $font-size-h1*$by;
+	}
+	h2, .h2 {
+		font-size: $font-size-h2*$by;
+	}
+	h3, .h3 {
+		font-size: $font-size-h3*$by;
+	}
+	h4,.h4 {
+		font-size: $font-size-h4*$by;
+	}
+	h5, .h5 {
+		font-size: $font-size-h5*$by;
+	}
+	h6, .h6 {
+		font-size: $font-size-h6*$by;
+	}
+}
+
+@mixin color-heading($color: inherit) {
+	h1, .h1 {
+		color: $color;
+	}
+	h2, .h2 {
+		color: $color;
+	}
+	h3, .h3 {
+		color: $color;
+	}
+	h4,.h4 {
+		color: $color;
+	}
+	h5, .h5 {
+		color: $color;
+	}
+	h6, .h6 {
+		color: $color;
+	}
+}
+
+@mixin trans($time:0.1s, $easing: ease-in-out, $type: all) {
+	transition: $type $time $easing;
+}

@@ -1,0 +1,14 @@
+.foot, .end {
+	&note {
+		border-top: 1px solid $gray-lighter;
+		padding: $padding 0;
+	}
+	&er .footer-header, &er-header {
+		color: $primary-color;
+	}
+	&er-sticky, &note-sticky {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
+}

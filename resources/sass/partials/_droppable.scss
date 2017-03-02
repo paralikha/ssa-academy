@@ -1,0 +1,37 @@
+.droppable {
+	background-color: transparent;
+	&-block {
+		border: 2px dashed $gray-light;
+		border-radius: 3px;
+		min-height: 300px;
+		&.active {
+			border-color: $primary-color;
+		}
+		padding: $padding-sm;
+	}
+	&-title {
+		position: absolute;
+		@include center();
+	}
+	&-subtitle {
+		@extend .text-muted;
+	}
+	&-item {
+		@extend .list-group-item;
+		cursor: move;
+		&, &:last-child {
+			margin-bottom: $margin;
+		}
+		.droppable-subtitle {
+			padding-left: $padding-lg;
+			margin-bottom: 0;
+		}
+	}
+	.separator {
+		margin-top: $margin-sm;
+	}
+}
+
+.toolbox .droppable-block .droppable-item {
+	margin-bottom: -1px;
+}

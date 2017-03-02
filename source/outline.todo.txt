@@ -1,0 +1,45 @@
+Outline:
+  1. Workflow:
+    1.1 Environment:
+      ☐ Apache, PHP, MySQL/MariaDB (or XAMPP)
+    1.2 Folder Structure:
+      ☐ Folder Structure
+    1.3 Tools, Setup & Installation:
+      ☐ Node.js (requirement for Gulp, Bower)
+      ☐ Ruby (requirement for SASS)
+      ☐ Gulp (for automated task running)
+      ☐ Bower (for frontend package management)
+      ☐ SASS (for CSS Preprocessing)
+      ☐ GitHub (for file versioning)
+    1.4 GitHub:
+      _!!Prerequisite: GitHub Account!!_
+      ☐ Repositories
+      ☐ `Gitting` from the command line
+        ☐ Pulling
+        ☐ Adding
+        ☐ Committing
+        ☐ Pushing
+        ☐ Branching
+        ☐ Merging
+      ☐ Adding Collaborators to your Repo
+    1.6 Working with NPM and Bower:
+      ☐ npm
+      ☐ bower
+    1.5 Working with Gulp:
+      ☐ Gulp tasks
+      ☐ Gulp watch
+  2. PHP & Wordpress:
+    2.1 Basics:
+      ☐ Basic PHP (functions & conditions)
+      ☐ Basic MySQL/MariaDB (command line v. PHPMyAdmin)
+    2.2 Wordpress Installation & Setup:
+      ☐ Wordpress Setup & Installation
+    2.3 Wordpress:
+      _!!Prerequisite: PHP (Basic)!!_
+      ☐ Wordpress `Theme Building`
+      ☐ Wordpress Plugin Development
+
+Schedule:
+  1 - 2.1   : 1st Session
+  2.2       : 2-3rd Session
+

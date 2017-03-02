@@ -1,0 +1,48 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:400,600,700,900';
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	color: $dark-color;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
+p, .p {
+	letter-spacing: $letter-spacing;
+}
+
+p, .p {
+	font-size: $font-size-base;
+}
+
+h1, .h1 {
+	font-size: $font-size-h1;
+	// font-weight: $font-weight-black;
+}
+
+h2, .h2 {
+	font-size: $font-size-h2;
+	// font-weight: $font-weight-heavy;
+}
+
+h3, .h3 {
+	font-size: $font-size-h3;
+	// font-weight: $font-weight-bolder;
+}
+
+h4, .h4 {
+	font-size: $font-size-h4;
+	font-weight: $font-weight-black;
+}
+
+h5, .h5 {
+	font-size: $font-size-h5;
+	font-weight: $font-weight-heading;
+}
+
+h6, .h6 {
+	font-size: $font-size-h6;
+	font-weight: $font-weight-bold;
+}
+
+.text-white p {
+	color: $light-color;
+}

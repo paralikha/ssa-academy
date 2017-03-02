@@ -1,0 +1,54 @@
+.form {
+	&-bordered {
+		.form-control {
+			&:after {
+				content: "";
+				width: 1px;
+				height: 100%;
+				right: $margin;
+				position: relative;
+			}
+		}
+		.input-group-btn {
+			padding-left: $padding;
+		}
+	}
+	&-border {
+		display: inline-block;
+		padding: $padding;
+		margin: 0;
+		border-top: 1px solid $gray-light;
+		border-bottom: 1px solid $gray-light;
+		&:first-child {
+			border-right: 1px solid $gray-light;
+		}
+	}
+}
+
+select.form-control:not([size]):not([multiple]) {
+	height: auto;
+}
+
+.form-control {
+	&:disabled {
+		color: $gray-light;
+	}
+	&-dotted {
+		@extend .form-control;
+		background-color: transparent;
+		box-shadow: none;
+		border: none;
+		border-bottom: 1px dotted $gray-light;
+		padding-left: 0;
+		padding-right: 0;
+		&:focus {
+			outline: none;
+			box-shadow: none;
+			background-color: transparent;
+		}
+	}
+}
+
+.fieldset-group {
+	margin-bottom: $margin-lg;
+}

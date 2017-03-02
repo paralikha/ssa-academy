@@ -1,0 +1,132 @@
+.section {
+	background: #ffffff;
+	position: relative;
+	> * {
+		position: relative;
+		z-index: 9999;
+	}
+	&-mininum {
+		min-height: 100vh;
+	}
+	&-ovv {
+		overflow: visible !important;
+	}
+	&-slanted {
+		&-upward {
+			padding-top: $padding-lg*4;
+			padding-bottom: $padding-lg*4;
+			overflow: visible !important;
+			&:not(:first-of-type) {
+				@include slant(before, true);
+			}
+			&:first-of-type {
+				padding-top: 0;
+				padding-bottom: 0;
+				// @include slant(after, false);
+			}
+		}
+		&-upward-both {
+			@include slant(both, true);
+			padding: $padding-lg*4 0;
+			z-index: 50;
+			overflow: visible !important;
+			&:after {
+				z-index: -1;
+			}
+		}
+		&-downward {
+			padding-top: $padding-lg*4;
+			padding-bottom: $padding-lg*2;
+			overflow: visible !important;
+			&:not(:first-of-type) {
+				@include slant(both, false);
+			}
+			&:first-of-type {
+				padding-top: 0;
+				@include slant(after, true);
+			}
+		}
+	}
+	&-bordered {
+		border-top: 1px solid rgba(0,0,0,0.1);
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+	}
+	&-padded {
+		padding-top: $padding-lg;
+		padding-bottom: $padding-lg;
+		&-lg {
+			padding-top: $padding-lg*3;
+			padding-bottom: $padding-lg*3;
+		}
+		&-xl {
+			padding-top: $padding-lg*6;
+			padding-bottom: $padding-lg*6;
+		}
+	}
+	&-block {
+		padding-top: $padding-lg*4;
+		padding-bottom: $padding-lg*4;
+	}
+	&-title {
+		margin-bottom: $margin-lg;
+		color: $primary-color;
+		span {
+			color: $dark-color;
+		}
+		&-lg {
+			font-size: $font-size-base*4;
+			// margin-bottom: $margin-xl !important;
+		}
+	}
+	&-subtitle {
+		// font-weight: $font-weight-heading;
+	}
+	&-title-from-left {
+		display: inline-block;
+		padding: $padding;
+		position: relative;
+		font-weight: $font-weight-heavy;
+		&:before {
+			content: "";
+			position: absolute;
+			left: -100vw;
+			top: 0;
+			width: 100vw;
+			height: 100%;
+			background: inherit;
+			box-shadow: border-box;
+		}
+	}
+	.bg-img-half {
+		&-primary {
+			&:after {
+				content: "";
+				width: 50%;
+				position: absolute;
+				right: 0;
+				top: 0;
+				background-color: $primary-color;
+			}
+		}
+		&-secondary {
+			&:after {
+				content: "";
+				width: 50%;
+				position: absolute;
+				right: 0;
+				top: 0;
+				background-color: $secondary-color;
+			}
+		}
+		&-danger {
+			&:after {
+				content: "";
+				width: 50%;
+				position: absolute;
+				right: 0;
+				top: 0;
+				background-color: $danger-color;
+			}
+		}
+	}
+}

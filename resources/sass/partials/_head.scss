@@ -1,0 +1,13 @@
+.head {
+	&er {
+		display: block;
+
+		&-block {
+			@extend .card-block;
+		}
+
+		&-item {
+			@extend .card-block;
+		}
+	}
+}

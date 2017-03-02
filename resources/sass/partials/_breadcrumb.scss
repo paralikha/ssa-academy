@@ -1,0 +1,7 @@
+.breadcrumb {
+	padding: $padding*.07 $padding-base;
+	margin-bottom: $margin;
+	&, .breadcrumb-item {
+		font-size: $font-size-base*0.8;
+	}
+}

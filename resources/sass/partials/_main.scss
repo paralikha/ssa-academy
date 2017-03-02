@@ -1,0 +1,43 @@
+.main {
+	min-height: 100vh;
+	padding-bottom: 100px;
+	position: relative;
+	@include trans();
+	&-center {
+		@include center();
+		width: 100%;
+		min-height: 0;
+		// margin-top: $margin-lg*5;
+	}
+	&-auth {
+		.brand-title {
+			display: none;
+		}
+	}
+	&-header {
+		@extend .card-header;
+		background-color: transparent;
+		border-bottom: 1px solid $gray-lighter;
+	}
+	&-title {
+		margin-bottom: 0;
+	}
+	&-subtitle {
+		@extend .card-subtitle;
+		margin-top: $margin;
+	}
+	.breadcrumb {
+		border-bottom: 1px solid $gray-lighter;
+	}
+}
+
+// Main offset
+.sidebar {
+	~ .main {
+		position: relative;
+		margin-left: $main-offset-wide;
+	}
+	&.toggled ~ .main {
+		margin-left: $main-offset-narrow;
+	}
+}

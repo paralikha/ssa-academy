@@ -1,0 +1,19 @@
+{
+  "name": "front-end-boilerplate",
+  "homepage": "",
+  "authors": [
+    "John Lioneil Dionisio <john.dionisio1@gmail.com>"
+  ],
+  "description": "Assets for Pluma",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ]
+}
